@@ -11,10 +11,11 @@ height = 714
 screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
 fps = 60
-
+randomBg=random.choice([1,2,3,4])
+randomBird=random.choice([1,2,3])
 # images
-background = pygame.image.load("images/background.png").convert_alpha()
-bird = pygame.image.load("images/bird.png").convert_alpha()
+background = pygame.image.load("images/background"+str(randomBg)+".png").convert_alpha()
+bird = pygame.image.load("images/bird"+str(randomBird)+".png").convert_alpha()
 pipe = pygame.image.load("images/pipe.png").convert_alpha()
 rotatedPipe = pygame.image.load("images/rotated_pipe.png").convert_alpha()
 
@@ -30,6 +31,7 @@ pygame.mixer.music.play(-1)
 
 class Game:
     def __init__(self):
+        
         self.gameOn = True
         self.birdX = 100
         self.birdY = 100
@@ -124,6 +126,10 @@ class Game:
         screen.blit(screen_text, (x, y))
 
     def mainGame(self):
+        randomBg=random.choice([1,2,3,4])
+        randomBird=random.choice([1,2,3])
+        background = pygame.image.load("images/background"+str(randomBg)+".png").convert_alpha()
+        bird = pygame.image.load("images/bird"+str(randomBird)+".png").convert_alpha()
         while self.gameOn:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
